@@ -28,7 +28,7 @@ Utiliza una MV para cada módulo o práctica (según se indique). **No reutilice
 | Recurso | Valor |
 |:---|:---|
 | Memoria RAM | 4 GB como mínimo (importante) |
-| Disco duro | 250 GB |
+| Disco duro | 25 GB |
 | Procesadores | 2-4 (importante) |
 | Virtualización anidada | Activada (VT-x/AMD-V anidado) |
 | Portapapeles compartido | Activado |
@@ -40,7 +40,7 @@ Utiliza una MV para cada módulo o práctica (según se indique). **No reutilice
 1. Crea la máquina virtual con los requisitos anteriores.
 2. Descarga la ISO de Linux Mint 22 (última versión, unos 2,8 GB) e instálala en la máquina creada: idioma, teclado, códecs, «borrar disco e instalar» y zona horaria.
 3. Pon como usuario principal **tu nombre**.
-4. Cambia el nombre del equipo a `server-<tu-nombre>` (¡menos de 15 caracteres!).
+4. Cambia el nombre del equipo a `cliente-<tu-nombre>` (¡menos de 15 caracteres!).
 5. Deja que termine la instalación y reinicia.
 6. Actualiza el sistema (`apt update`).
 7. Instala el motor de contenedores:
