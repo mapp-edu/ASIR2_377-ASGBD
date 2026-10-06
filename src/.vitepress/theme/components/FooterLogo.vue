@@ -20,6 +20,7 @@ const { theme } = useData()
 const b = theme.value.logoBranding as {
   mode: 'same' | 'invert' | 'separate'
   darkSuffix: string
+  show?: { footer?: boolean }
   logos: {
     footer: { src: string; height: string }
   }
@@ -33,6 +34,7 @@ const licenseIcon = computed(() => (license.value?.icon ? withBase(license.value
 <template>
   <div class="footer-logo-wrap">
     <ThemedImage
+      v-if="b.show?.footer !== false"
       :src="b.logos.footer.src"
       :mode="b.mode"
       :darkSuffix="b.darkSuffix"

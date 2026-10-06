@@ -15,6 +15,7 @@ const { theme } = useData()
 const b = theme.value.logoBranding as {
   mode: 'same' | 'invert' | 'separate'
   darkSuffix: string
+  show?: { autor?: boolean; gva?: boolean; centro?: boolean }
   logos: {
     autor:  { src: string; height: string }
     gva:    { src: string; height: string }
@@ -26,6 +27,7 @@ const b = theme.value.logoBranding as {
 <template>
   <div class="sidebar-logos">
     <ThemedImage
+      v-if="b.show?.autor !== false"
       :src="b.logos.autor.src"
       :mode="b.mode"
       :darkSuffix="b.darkSuffix"
@@ -35,6 +37,7 @@ const b = theme.value.logoBranding as {
       imgStyle="display:block;margin:0 auto;"
     />
     <ThemedImage
+      v-if="b.show?.gva !== false"
       :src="b.logos.gva.src"
       :mode="b.mode"
       :darkSuffix="b.darkSuffix"
@@ -44,6 +47,7 @@ const b = theme.value.logoBranding as {
       imgStyle="display:block;margin:0 auto;margin-top:var(--custom-space-3);"
     />
     <ThemedImage
+      v-if="b.show?.centro !== false"
       :src="b.logos.centro.src"
       :mode="b.mode"
       :darkSuffix="b.darkSuffix"

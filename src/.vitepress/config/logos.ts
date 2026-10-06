@@ -45,4 +45,16 @@ export const LOGOS = {
     footer: '75px',   // Logo del pie de página (versión compacta del autor)
   },
 
+  // --------------------------------------------------------------------------
+  // LOGOS VISIBLES
+  // --------------------------------------------------------------------------
+  // Pon a false los logos que no tengas. Un logo oculto no se renderiza,
+  // así se evita la imagen rota cuando el archivo no existe en src/public/img/.
+  show: {
+    autor:  false,  // no hay logo de autor en este proyecto
+    gva:    true,
+    centro: true,
+    footer: false,  // el pie muestra solo copyright + licencia
+  },
+
 }
