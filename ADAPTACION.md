@@ -99,6 +99,7 @@ PostgreSQL (los ejemplos marcados con ✔ se han probado en PostgreSQL 16):
 - UT4 tareas ✔: el procedimiento de ejemplo ejecutaba `VACUUM FULL` con `EXECUTE`, y PostgreSQL no permite `VACUUM` dentro de una función o procedimiento. El ejemplo usa ahora `REINDEX TABLE` y se añade cómo lanzar `VACUUM` con `\gexec`. También se ha corregido el aviso de que el DDL no se puede escribir en un bloque (en PL/pgSQL sí se puede).
 - UT4 procedimientos: decía que se llaman «desde DBMS_SCHEDULER» → `pg_cron`.
 - UT5 particiones ✔: la clave primaria de una tabla particionada debe incluir la columna de partición.
+- UT2 parada ✔: el modo de parada por defecto de `pg_ctl stop` es `fast` desde la versión 9.5 (decía `smart`).
 
 ## Cosas que conviene revisar
 

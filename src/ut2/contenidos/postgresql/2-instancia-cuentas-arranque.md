@@ -466,17 +466,17 @@ pg_ctl -D /ruta/al/PGDATA stop
 
 PostgreSQL permite 3 modos de shutdown:
 
-**🟢 Smart (por defecto)**
+**🟢 Smart**
 
-Espera a que acaben las conexiones activas.
+No admite conexiones nuevas y espera a que acaben las activas. Hasta PostgreSQL 9.4 era el modo por defecto.
 
 ```bash
 pg_ctl stop -m smart
 ```
 
-**🟡 Fast (el más habitual en producción)**
+**🟡 Fast (por defecto desde PostgreSQL 9.5)**
 
-Cancela las transacciones y hace checkpoint.
+Cancela las transacciones en curso, desconecta los clientes y hace un checkpoint antes de parar. Es lo que hace `pg_ctl stop` si no se indica `-m`.
 
 ```bash
 pg_ctl stop -m fast
@@ -490,7 +490,7 @@ No hace un checkpoint limpio → recuperación en el próximo inicio.
 pg_ctl stop -m immediate
 ```
 
-**👉 Normalmente se utiliza fast.**
+**👉 Normalmente se utiliza fast, que es además el modo por defecto.**
 
 ---
 
