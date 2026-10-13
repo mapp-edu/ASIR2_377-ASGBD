@@ -360,7 +360,7 @@ export const UNITS: Record<string, UnitConfig> = {
     code: 'root',
     title: 'ASGBD',
     fullTitle: 'Administración de Sistemas Gestores de Bases de Datos',
-    siteTitle: 'Administración de Sistemas</br>Gestores de</br>Bases de Datos',
+    siteTitle: 'Administración de</br>Sistemas Gestores</br>de Bases de Datos',
     icon: '🏠',
     navbar: navbarGlobal,
     sidebar: []
