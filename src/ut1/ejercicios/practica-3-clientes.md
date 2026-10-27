@@ -74,6 +74,25 @@ sudo alien -i oracle-instantclient-b*.rpm
 sudo alien -i oracle-instantclient-s*.rpm
 ```
 
+El Instant Client necesita la biblioteca `libaio`, que no se instala sola. Sin ella, `sqlplus` falla con el error `libaio.so.1: cannot open shared object file`. En Linux Mint 22 (basado en Ubuntu 24.04) el paquete se llama `libaio1t64` y la biblioteca cambió de nombre, así que además hay que crear un enlace con el nombre que busca Oracle:
+
+```bash
+sudo apt install -y libaio1t64
+sudo ln -s /usr/lib/x86_64-linux-gnu/libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
+sudo ldconfig
+```
+
+::: tip Linux Mint 21 o anterior
+En versiones basadas en Ubuntu 22.04 o anteriores basta con `sudo apt install -y libaio1`, sin enlace.
+:::
+
+Comprueba que no falta ninguna biblioteca (la orden no debe mostrar nada) y conecta con el servidor:
+
+```bash
+ldd $(which sqlplus) | grep "not found"
+sqlplus orauser/1234@//<ip>:1521/FREEPDB1
+```
+
 ### Cliente de terminal: SQLcl
 
 Necesita Java (versión 11 o superior). Descárgalo desde <https://www.oracle.com/database/sqldeveloper/technologies/sqlcl/download/>:
@@ -102,9 +121,11 @@ Para una versión específica: `sudo apt install postgresql-client-14`.
 
 ### pgAdmin 4
 
+Añade la clave del repositorio de pgAdmin a un llavero propio (`apt-key` está obsoleto en Ubuntu 24.04 y Linux Mint 22), da de alta el repositorio e instala el programa:
+
 ```bash
-sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add -
-sudo sh -c '. /etc/upstream-release/lsb-release && echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$DISTRIB_CODENAME pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+curl -fsS https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+sudo sh -c '. /etc/upstream-release/lsb-release && echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$DISTRIB_CODENAME pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
 sudo apt install -y pgadmin4
 ```
 
@@ -197,7 +218,7 @@ Esta práctica aporta evidencias de los siguientes criterios de evaluación del 
 | CE | Criterio de evaluación | Qué se valora en esta práctica |
 |:---:|:---|:---|
 | **1.a** | Se ha reconocido la utilidad y función de cada uno de los elementos de un sistema gestor de bases de datos. | Explica la función del software cliente y lo diferencia del software servidor de cada SGBD. |
-| **1.d** | Se ha identificado el software necesario para llevar a cabo la instalación. | Identifica el software necesario para cada cliente (JDK, Instant Client, repositorios, servidor web para phpMyAdmin). |
+| **1.d** | Se ha identificado el software necesario para llevar a cabo la instalación. | Identifica el software necesario para cada cliente (JDK, Instant Client y su dependencia `libaio`, repositorios, servidor web para phpMyAdmin). |
 | **1.f** | Se han instalado sistemas gestores de bases de datos. | Los clientes gráficos y de terminal quedan instalados y operativos en una máquina distinta de la del servidor. |
 | **1.i** | Se han resuelto las incidencias de la instalación. | Resuelve las incidencias de instalación y de conexión (versión de Java, conversión de paquetes, puertos). |
 | **1.j** | Se ha verificado el funcionamiento del sistema gestor de bases de datos. | Verifica el funcionamiento de los tres SGBD conectando desde la máquina cliente. |

@@ -174,11 +174,15 @@ listen_addresses = '*'
 
 Esto permite que PostgreSQL escuche conexiones externas.
 
-Edita también `pg_hba.conf` (en el mismo directorio), que controla quién puede conectarse y cómo. Añade al final una línea como esta para permitir las conexiones desde la subred `192.168.1.0/24` (ajusta el rango a tu red):
+Edita también `pg_hba.conf` (en el mismo directorio), que controla quién puede conectarse y cómo. Añade al final una línea como esta para permitir las conexiones desde la subred `192.168.1.0/24`:
 
 ```txt
 host    all             all             192.168.1.0/24          md5
 ```
+
+::: warning Ajusta el rango a tu red
+`192.168.1.0/24` es solo un ejemplo. Comprueba la red real del servidor y del cliente con `ip a` y escribe la tuya (por ejemplo, `10.20.30.0/24`). Si la IP del cliente no está dentro del rango, PostgreSQL rechazará la conexión aunque el puerto esté abierto.
+:::
 
 o esta otra para permitir a todos:
 
@@ -194,11 +198,21 @@ sudo systemctl restart postgresql
 sudo ufw allow 5432/tcp
 ```
 
+Comprueba que PostgreSQL ha cargado las reglas de `pg_hba.conf` sin errores (la columna `error` debe estar vacía):
+
+```bash
+sudo -u postgres psql -c "SELECT line_number, type, database, user_name, address, auth_method, error FROM pg_hba_file_rules;"
+```
+
 Prueba desde otra máquina:
 
 ```bash
 psql -h 192.168.1.100 -U nom_usuari -d nom_BBDD
 ```
+
+::: tip Si aparece `no pg_hba.conf entry for host …`
+El mensaje indica que la conexión llega al servidor (la red y `listen_addresses` están bien), pero ninguna regla de `pg_hba.conf` coincide con la IP, el usuario y la base de datos. Revisa el rango de la regla, recuerda que se aplica la primera regla que coincide y recarga la configuración con `sudo systemctl reload postgresql`.
+:::
 
 ### MariaDB
 
