@@ -31,6 +31,7 @@ Utiliza una MV para cada módulo o práctica (según se indique). **No reutilice
 | Procesadores | 2-4 (importante) |
 | Portapapeles compartido | Activado |
 | Disquetera | Quitarla |
+| Aceleración 3D (Configuración → Pantalla) | **Desactivada** (importante) |
 | Red | Adaptador puente o NAT para instalar; después se cambiará |
 
 ## Desarrollo
@@ -47,7 +48,11 @@ Utiliza una MV para cada módulo o práctica (según se indique). **No reutilice
 Después de la instalación:
 
 - Cambia el adaptador de red de la MV a **red interna** (sin salida a internet), para que Windows no se actualice ni pregunte por actualizaciones.
-- Muy recomendable: cambia el controlador gráfico para agilizar el funcionamiento de la máquina.
+- Muy recomendable: cambia el controlador gráfico a **VBoxSVGA** para agilizar el funcionamiento de la máquina.
+
+::: danger No actives la aceleración 3D
+Deja desmarcada la casilla **Habilitar aceleración 3D** (*Configuración → Pantalla*). El instalador de Oracle, DBCA, NETCA y SQL Developer son aplicaciones Java y, con la aceleración 3D de VirtualBox activada, pueden **cerrarse de golpe sin mostrar ningún error**. Si después de instalar las *Guest Additions* la activas, desactívala antes de la práctica 5.
+:::
 - Haz una **OVA** (con la máquina apagada; unos 6 minutos) y una **instantánea**.
 - Opcional: instala las *Guest Additions*, activa el portapapeles bidireccional y reinicia.
 - Por último, pausa las actualizaciones de Windows el máximo tiempo posible (repite la pausa cuatro veces).

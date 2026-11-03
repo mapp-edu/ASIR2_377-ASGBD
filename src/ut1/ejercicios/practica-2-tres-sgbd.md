@@ -21,7 +21,7 @@ En la máquina virtual Linux Mint de la práctica anterior, despliega tres siste
 
 ## Requisitos
 
-- MV con Debian o Linux Mint: virtualización anidada, 4 GB de RAM, 2 CPU y 250 GB de disco (calcula unos 25 GB + 5 GB por contenedor).
+- MV con Debian o Linux Mint: virtualización anidada, 4 GB de RAM, 2 CPU y 50 GB de disco como mínimo (Linux Mint ocupa unos 10 GB y la imagen de Oracle, varios GB más, a los que se suman el contenedor y el resto de SGBD).
 - Conexión a internet para descargar imágenes y paquetes.
 
 ## Parte 1. Oracle Database Free sobre podman
@@ -44,7 +44,7 @@ podman run -d --name cont-oracle -p 1521:1521 -e ORACLE_PWD=1234 --restart alway
 ```
 
 - `--restart always`: cuando se apague la máquina principal, al volver a arrancar los contenedores arrancan automáticamente.
-- `-e ORACLE_PWD=1234`: contraseña inicial de los usuarios `sys` y `system`. Como se establece mediante una variable de entorno, **después no se podrá cambiar**.
+- `-e ORACLE_PWD=1234`: contraseña inicial de los usuarios `sys`, `system` y `pdbadmin`. La variable del contenedor no cambia después, pero la contraseña sí: con el script de la imagen (`podman exec cont-oracle /opt/oracle/setPassword.sh <nueva>`) o con `ALTER USER`.
 
 ```bash
 # Ver los contenedores en funcionamiento
@@ -67,7 +67,8 @@ Muestra la versión instalada y el nombre de la BBDD, de la CDB y de la PDB. Des
 
 ```sql
 -- podman exec -it cont-oracle sqlplus sys/1234@FREEPDB1 as sysdba
-create user orauser identified by 1234;
+-- Las contraseñas que empiezan por un número van entre comillas dobles
+create user orauser identified by "1234";
 grant connect,resource to orauser;
 alter user orauser quota unlimited on users;
 exit
@@ -98,14 +99,16 @@ psql
 ```
 
 ```sql
--- Crear la base de datos
-CREATE DATABASE dbpg;
 -- Crear el usuario con contraseña
 CREATE USER pguser WITH PASSWORD '1234';
--- Dar permisos
-GRANT ALL PRIVILEGES ON DATABASE dbpg TO pguser;
+-- Crear la base de datos con el usuario como propietario
+CREATE DATABASE dbpg OWNER pguser;
 \q
 ```
+
+::: tip ¿Por qué propietario y no `GRANT ALL`?
+Desde PostgreSQL 15, `GRANT ALL PRIVILEGES ON DATABASE dbpg TO pguser` permite conectarse, pero **no crear tablas**: el esquema `public` pertenece al propietario de la base de datos y los demás usuarios ya no pueden crear objetos en él (`ERROR: permission denied for schema public`). Haciendo a `pguser` propietario de `dbpg`, puede crear tablas en su base de datos.
+:::
 
 Sal del usuario `postgres` con `exit` y prueba la conexión (**muestra los resultados**):
 
@@ -227,11 +230,16 @@ Busca la sección `[mysqld]` y cambia la línea `bind-address = 127.0.0.1` por:
 bind-address = 0.0.0.0
 ```
 
-Esto permite que MariaDB escuche conexiones desde cualquier IP. Además, el usuario debe tener permiso para conectar remotamente (ya lo hemos hecho antes al crearlo con `'%'`). Para limitarlo a una subred concreta:
+Esto permite que MariaDB escuche conexiones desde cualquier IP. Además, el usuario debe tener permiso para conectar remotamente (ya lo hemos hecho antes al crearlo con `'%'`).
+
+En MariaDB una cuenta es la pareja `usuario@host`: `muser@'%'` y `muser@'192.168.1.%'` son **dos cuentas distintas**. Para limitar el acceso a una subred concreta hay que crear la cuenta de esa subred y **borrar** la general; si no, `muser@'%'` sigue dejando entrar desde cualquier sitio:
 
 ```sql
--- sudo mariadb -u root -p
-GRANT ALL PRIVILEGES ON nom_base_de_dades.* TO 'nom_usuari'@'192.168.1.%' IDENTIFIED BY 'contrasenya';
+-- sudo mariadb
+CREATE USER 'nom_usuari'@'192.168.1.%' IDENTIFIED BY 'contrasenya';
+GRANT ALL PRIVILEGES ON nom_base_de_dades.* TO 'nom_usuari'@'192.168.1.%';
+DROP USER 'nom_usuari'@'%';
+SELECT user, host FROM mysql.user WHERE user = 'nom_usuari';
 ```
 
 Reinicia MariaDB y abre el cortafuegos:

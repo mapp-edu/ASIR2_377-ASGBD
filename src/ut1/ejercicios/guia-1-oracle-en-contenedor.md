@@ -13,7 +13,7 @@ Primer contacto con Oracle Database: despliegue de **Oracle Database 23ai Free**
 
 ## Requisitos
 
-MV con Debian o Linux Mint, virtualización anidada, 4 GB de RAM, 2 CPU y 250 GB de disco (unos 25 GB + 5 GB por contenedor).
+MV con Debian o Linux Mint, virtualización anidada, 4 GB de RAM, 2 CPU y 50 GB de disco como mínimo (Linux Mint ocupa unos 10 GB y la imagen de Oracle, varios GB más, a los que se suman los contenedores).
 
 ## Instalar podman y descargar la imagen
 
@@ -37,7 +37,7 @@ podman run -d --name <nom-cont-oracle-db> -p 1521:1521 -e ORACLE_PWD=1234 --rest
 ```
 
 - `--restart always`: cuando se apague la máquina principal, al volver a arrancar los contenedores arrancan automáticamente.
-- `-e ORACLE_PWD=1234`: contraseña inicial de los usuarios `sys` y `system`. Como se establece mediante una variable de entorno, después **no** se podrá cambiar.
+- `-e ORACLE_PWD=1234`: contraseña inicial de los usuarios `sys`, `system` y `pdbadmin`. La variable del contenedor no cambia después, pero la contraseña sí: con el script de la imagen (`podman exec cont-oracle /opt/oracle/setPassword.sh <nueva>`) o con `ALTER USER`.
 
 ```bash
 # Ver los contenedores en funcionamiento

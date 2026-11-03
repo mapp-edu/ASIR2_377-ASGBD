@@ -180,12 +180,14 @@ sudo apt-get install -f
 ### Adminer
 
 ```bash
-sudo apt install php8.3-cli
+sudo apt install php8.3-cli php8.3-pgsql php8.3-mysql
 wget https://www.adminer.org/latest.php -O adminer.php
 php -S localhost:8080 adminer.php
 ```
 
 Después abre el navegador y ve a `http://localhost:8080`.
+
+Adminer es un programa en PHP y conecta con cada SGBD mediante una extensión de PHP: `php8.3-pgsql` para PostgreSQL y `php8.3-mysql` para MariaDB. Sin ellas, esos sistemas no aparecen o Adminer avisa de que no hay extensiones disponibles. Con Oracle no se puede usar, porque la extensión `oci8` no está en los repositorios.
 
 ## Comprobación
 

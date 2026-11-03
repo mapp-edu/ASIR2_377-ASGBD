@@ -30,6 +30,7 @@ Mantén el adaptador de red en **red interna** para evitar que Windows se actual
 ## Requisitos
 
 - 4 GB o más de memoria RAM, 2 o 4 CPU y 100 GB o más de SSD.
+- Aceleración 3D de la máquina virtual **desactivada** (ver la [práctica 4](/ut1/ejercicios/practica-4-mv-windows-10)).
 
 ## Desarrollo
 
@@ -39,6 +40,14 @@ Mantén el adaptador de red en **red interna** para evitar que Windows se actual
 4. Crea las carpetas de instalación siguiendo la **OFA** y mueve el instalador dentro.
 5. Instala **solo el software** del SGBD: ejecuta `setup.exe` como administrador.
 6. ¿Dónde está el log de la instalación? Indica el lugar y adjunta una copia del fichero de log al trabajo.
+
+::: warning Si el instalador se cierra sin avisar
+Si `setup.exe` desaparece en mitad de la instalación (normalmente al pulsar **Instalar**, cuando cambia a la pantalla de progreso) y el log se corta sin ningún mensaje de error, la causa más probable es la **aceleración 3D** de VirtualBox. Para comprobarlo, ejecuta `setup.exe -debug` desde un CMD como administrador: si al principio aparecen líneas como `Mesa: SVGA3D`, Java está usando el controlador 3D de la máquina virtual.
+
+Solución: apaga la máquina, desmarca **Habilitar aceleración 3D** en *Configuración → Pantalla* y vuelve a ejecutar `setup.exe`. Lo mismo vale para DBCA, NETCA y SQL Developer.
+
+Documenta en el trabajo cómo has diagnosticado y resuelto la incidencia.
+:::
 
 ::: warning A partir de aquí
 No borres ni muevas la carpeta del instalador de donde está. Si no funciona, comprueba que no hay espacios en el nombre de la carpeta que contiene el instalador.
@@ -84,7 +93,7 @@ Esta práctica aporta evidencias de los siguientes criterios de evaluación del 
 | **1.e** | Se ha verificado el cumplimiento de los requisitos hardware. | Verifica y justifica el cumplimiento de los requisitos de hardware antes de instalar. |
 | **1.f** | Se han instalado sistemas gestores de bases de datos. | Instala el software del SGBD y crea las dos bases de datos multitenant con sus PDB. |
 | **1.h** | Se ha interpretado la información suministrada por los mensajes de error y ficheros de registro. | Localiza los ficheros de log de las instalaciones, los adjunta e interpreta su contenido y los resultados de `show pdbs`. |
-| **1.i** | Se han resuelto las incidencias de la instalación. | Resuelve las incidencias surgidas (rutas con espacios, permisos de administrador, listener, IP). |
+| **1.i** | Se han resuelto las incidencias de la instalación. | Resuelve las incidencias surgidas (rutas con espacios, permisos de administrador, aceleración 3D, listener, IP). |
 | **1.j** | Se ha verificado el funcionamiento del sistema gestor de bases de datos. | Verifica el funcionamiento con SQL\*Plus y con las conexiones de SQL Developer a la CDB y a la PDB. |
 | **1.g** | Se ha documentado el proceso de instalación. | Documenta el proceso completo de instalación. |
 
