@@ -183,6 +183,7 @@ const ut3Sidebar: DefaultTheme.SidebarItem[] = [
       { text: 'Guía: permisos UPDATE y DELETE en Oracle', link: '/ejercicios/guia-2-update-delete-select' },
       { text: 'Guía: usuarios comunes en Oracle', link: '/ejercicios/guia-3-usuarios-comunes' },
       { text: 'Cuestionario de autoevaluación', link: '/ejercicios/cuestionario' },
+      { text: 'Simulacro de examen UT1–UT3', link: '/ejercicios/simulacro-ut1-ut3' },
     ],
   },
 ]

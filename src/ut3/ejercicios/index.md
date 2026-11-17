@@ -46,3 +46,9 @@ Las prácticas adaptadas del material original están planteadas sobre **Oracle*
 ---
 
 <small>Adaptación al castellano de los materiales de [Enrique Iborra](https://enriqueiborra.github.io/ASGBD/) para el módulo ASGBD · [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).</small>
+
+## Preparación del examen
+
+| Actividad | Descripción |
+|:---|:---|
+| [Simulacro de examen UT1–UT3](./simulacro-ut1-ut3) | Cuestionario de 20 preguntas y ejercicio práctico sobre los servidores Oracle y PostgreSQL del aula, con la misma estructura y criterios que el examen de las unidades 1, 2 y 3. |
