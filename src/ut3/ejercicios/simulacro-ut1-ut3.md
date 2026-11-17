@@ -187,7 +187,7 @@ Sustituye **NN** por tu número de cuenta (por ejemplo, `ex07`) en todos los nom
 
 | | Oracle | PostgreSQL |
 |---|---|---|
-| Servidor | `<IP_SERVIDOR>` | `<IP_SERVIDOR>` |
+| Servidor | `<10.2.26.84>` | `10.2.26.84` |
 | Puerto | `1521` | `5432` |
 | Servicio / base de datos | `FREEPDB1` | `exNN` |
 | Usuario | `exNN` | `exNN` |
