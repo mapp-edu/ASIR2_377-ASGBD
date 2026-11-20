@@ -12,7 +12,7 @@ pageClass: ejercicios-page
 Unidades 1 (Implantación de SGBD), 2 (Configuración del SGBD) y 3 (Control de acceso). Resultados de aprendizaje **RA1**, **RA2** y **RA3**.
 
 ::: tip Simulacro
-Este simulacro tiene la misma estructura, duración y criterios que el examen. Hazlo en las mismas condiciones para saber cómo gestionar el tiempo.
+Este simulacro tiene la misma estructura, duración y criterios que el examen. Hazlo en las mismas condiciones para saber cómo gestionar el tiempo. Después, corrígelo con la [solución del simulacro](./solucion-simulacro-ut1-ut3).
 :::
 
 ## Instrucciones

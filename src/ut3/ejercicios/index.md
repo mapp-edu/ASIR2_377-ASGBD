@@ -52,3 +52,4 @@ Las prácticas adaptadas del material original están planteadas sobre **Oracle*
 | Actividad | Descripción |
 |:---|:---|
 | [Simulacro de examen UT1–UT3](./simulacro-ut1-ut3) | Cuestionario de 20 preguntas y ejercicio práctico sobre los servidores Oracle y PostgreSQL del aula, con la misma estructura y criterios que el examen de las unidades 1, 2 y 3. |
+| [Solución del simulacro UT1–UT3](./solucion-simulacro-ut1-ut3) | Clave del cuestionario con justificaciones, solución de cada apartado práctico y criterios de nivel de la rúbrica para autocorregirte. |
