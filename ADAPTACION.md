@@ -105,6 +105,7 @@ PostgreSQL (los ejemplos marcados con ✔ se han probado en PostgreSQL 16):
 - UT1 práctica 2 y guía de Oracle en contenedor: la contraseña de `ORACLE_PWD` sí se puede cambiar (`setPassword.sh` o `ALTER USER`); la contraseña `1234` de `orauser` va entre comillas dobles.
 - UT1 práctica 3: Adminer necesita `php8.3-pgsql` y `php8.3-mysql` además de `php8.3-cli`.
 - UT1 prácticas 1 y 2 y guía de Oracle en contenedor: disco de 50 GB (decía 25 GB en una y 250 GB en otras); la MV de la práctica 1 se llama `srv-<nombre>` porque es el servidor (decía `cliente-<nombre>`).
+- UT3 Oracle: `CREATE PROFILE perf-adm` → `perf_adm` (un nombre sin comillas no admite guiones); `IDENTIFIED BY '1234'` → `"1234"` (en Oracle las contraseñas van entre comillas dobles); una sesión conectada como SYSDBA aparece en `v$session` como SYS, no como SYSTEM.
 
 ## Cosas que conviene revisar
 

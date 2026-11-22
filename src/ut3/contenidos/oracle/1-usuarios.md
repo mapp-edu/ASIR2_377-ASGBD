@@ -48,13 +48,13 @@ SELECT * FROM user2.table1;
 
 ```sql
 -- Crear un usuario en una PDB (el caso más usual)
-CREATE USER ausias IDENTIFIED BY '1234';
+CREATE USER ausias IDENTIFIED BY "1234";
 
 -- Crear un usuario común (en la CDB)
-CREATE USER C##admin IDENTIFIED BY 'secure' CONTAINER=ALL;
+CREATE USER C##admin IDENTIFIED BY "secure" CONTAINER=ALL;
 
 -- Modificar la contraseña
-ALTER USER ausias IDENTIFIED BY 'nova_clau';
+ALTER USER ausias IDENTIFIED BY "nova_clau";
 
 -- Eliminar un usuario
 DROP USER ausias CASCADE;
@@ -276,7 +276,7 @@ o
 ALTER SYSTEM KILL SESSION 'SID,SERIAL#' IMMEDIATE;
 ```
 
-Si un usuario ha conectado con el rol SYSDBA, no se visualizará su nombre, sino SYSTEM
+Si un usuario ha conectado con el rol SYSDBA, no se visualizará su nombre, sino SYS
 
 #### Matar la sesión directamente desde el sistema operativo
 

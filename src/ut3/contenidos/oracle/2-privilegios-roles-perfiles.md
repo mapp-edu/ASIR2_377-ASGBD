@@ -353,7 +353,7 @@ Puedes crear un perfil nuevo con la orden `CREATE PROFILE` y modificarlo con `AL
 
 ```sql
 -- Ejemplo de creación de un perfil con restricciones de recursos y de contraseña
-CREATE PROFILE perf-adm LIMIT
+CREATE PROFILE perf_adm LIMIT
   SESSIONS_PER_USER     5
   CONNECT_TIME          120
   IDLE_TIME             30
@@ -361,7 +361,7 @@ CREATE PROFILE perf-adm LIMIT
   PASSWORD_LIFE_TIME    165;
 
 -- Modificar un perfil para establecer un tiempo de bloqueo de la contraseña
-ALTER PROFILE perf-adm LIMIT PASSWORD_LOCK_TIME 5;
+ALTER PROFILE perf_adm LIMIT PASSWORD_LOCK_TIME 5;
 ```
 
 ### Asignar un perfil a un usuario
@@ -373,10 +373,10 @@ Al crear o modificar un usuario, puedes asignarle un perfil para limitar los rec
 CREATE USER enric IDENTIFIED BY secret
   DEFAULT TABLESPACE tab_app
   QUOTA UNLIMITED ON tab_app
-  PROFILE perf-adm;
+  PROFILE perf_adm;
 
 -- O actualizar un usuario existente para asignarle un perfil
-ALTER USER enric PROFILE perf-adm;
+ALTER USER enric PROFILE perf_adm;
 ```
 
 ### Buenas prácticas
