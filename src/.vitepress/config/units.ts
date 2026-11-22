@@ -205,6 +205,7 @@ const ut3Sidebar: DefaultTheme.SidebarItem[] = [
       { text: 'Guía: usuarios comunes en Oracle', link: '/ejercicios/guia-3-usuarios-comunes' },
       { text: 'Cuestionario de autoevaluación', link: '/ejercicios/cuestionario' },
       { text: 'Simulacro de examen UT1–UT3', link: '/ejercicios/simulacro-ut1-ut3' },
+      { text: 'Examen UT1–UT3', link: '/ejercicios/examen-ut1-ut3' },
     ],
   },
   {
