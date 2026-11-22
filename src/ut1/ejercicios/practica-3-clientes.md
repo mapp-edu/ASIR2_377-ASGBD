@@ -241,3 +241,7 @@ La nota de la práctica es la media de las puntuaciones de sus criterios. El **n
 ---
 
 <small>Adaptación al castellano de los materiales de [Enrique Iborra](https://enriqueiborra.github.io/ASGBD/) para el módulo ASGBD · [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es). Fuente: `UD1/01 instalar 3 clients d sgbds.pdf · PLALOE_EXTR/05 instalar 3 clients d sgbds.pdf`.</small>
+
+::: tip Solución
+Cuando hayas hecho la práctica, puedes revisar tu trabajo con la [solución de referencia](./soluciones/solucion-practica-3-clientes).
+:::

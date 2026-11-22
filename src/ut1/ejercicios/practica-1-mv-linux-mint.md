@@ -95,3 +95,7 @@ La nota de la práctica es la media de las puntuaciones de sus criterios. El **n
 ---
 
 <small>Adaptación al castellano de los materiales de [Enrique Iborra](https://enriqueiborra.github.io/ASGBD/) para el módulo ASGBD · [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es). Fuente: `UD1/00 instalar linux mint.pdf · PLALOE_EXTR/03 instalar linux mint.pdf`.</small>
+
+::: tip Solución
+Cuando hayas hecho la práctica, puedes revisar tu trabajo con la [solución de referencia](./soluciones/solucion-practica-1-mv-linux-mint).
+:::

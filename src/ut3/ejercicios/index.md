@@ -53,3 +53,13 @@ Las prácticas adaptadas del material original están planteadas sobre **Oracle*
 |:---|:---|
 | [Simulacro de examen UT1–UT3](./simulacro-ut1-ut3) | Cuestionario de 20 preguntas y ejercicio práctico sobre los servidores Oracle y PostgreSQL del aula, con la misma estructura y criterios que el examen de las unidades 1, 2 y 3. |
 | [Solución del simulacro UT1–UT3](./solucion-simulacro-ut1-ut3) | Clave del cuestionario con justificaciones, solución de cada apartado práctico y criterios de nivel de la rúbrica para autocorregirte. |
+
+## Soluciones
+
+Consúltalas después de hacer cada práctica, para revisar tu trabajo y entender cómo se aplica la rúbrica.
+
+| Solución | Contenido |
+|:---|:---|
+| [Solución de la práctica 1: usuarios y permisos](./soluciones/solucion-practica-1-usuarios-permisos) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 2: copias con Oracle expdp](./soluciones/solucion-practica-2-copias-expdp) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 3: vistas, sinónimos y roles](./soluciones/solucion-practica-3-vistas-sinonimos-roles) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |

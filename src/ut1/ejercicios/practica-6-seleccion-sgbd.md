@@ -93,3 +93,7 @@ La nota de la práctica es la media de las puntuaciones de sus criterios. El **n
 ---
 
 <small>Práctica de elaboración propia para el módulo ASGBD. Completa los materiales adaptados de [Enrique Iborra](https://enriqueiborra.github.io/ASGBD/) · [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).</small>
+
+::: tip Solución
+Cuando hayas hecho la práctica, puedes revisar tu trabajo con la [solución de referencia](./soluciones/solucion-practica-6-seleccion-sgbd).
+:::

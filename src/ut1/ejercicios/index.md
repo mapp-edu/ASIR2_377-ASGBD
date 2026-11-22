@@ -48,3 +48,16 @@ Material de consulta para realizar las prácticas; no se entrega.
 ---
 
 <small>Adaptación al castellano de los materiales de [Enrique Iborra](https://enriqueiborra.github.io/ASGBD/) para el módulo ASGBD · [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).</small>
+
+## Soluciones
+
+Consúltalas después de hacer cada práctica, para revisar tu trabajo y entender cómo se aplica la rúbrica.
+
+| Solución | Contenido |
+|:---|:---|
+| [Solución de la práctica 1: preparación de la MV Linux Mint](./soluciones/solucion-practica-1-mv-linux-mint) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 2: desplegar Oracle, PostgreSQL y MariaDB](./soluciones/solucion-practica-2-tres-sgbd) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 3: instalar los clientes de los tres SGBD](./soluciones/solucion-practica-3-clientes) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 4: preparación de la MV Windows 10 Pro](./soluciones/solucion-practica-4-mv-windows-10) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 5: instalar Oracle 21c en Windows 10 Pro](./soluciones/solucion-practica-5-oracle-21c-windows) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 6: selección del SGBD](./soluciones/solucion-practica-6-seleccion-sgbd) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |

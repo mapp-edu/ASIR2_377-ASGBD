@@ -42,3 +42,13 @@ Material de consulta para realizar las prácticas; no se entrega.
 ---
 
 <small>Adaptación al castellano de los materiales de [Enrique Iborra](https://enriqueiborra.github.io/ASGBD/) para el módulo ASGBD · [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).</small>
+
+## Soluciones
+
+Consúltalas después de hacer cada práctica, para revisar tu trabajo y entender cómo se aplica la rúbrica.
+
+| Solución | Contenido |
+|:---|:---|
+| [Solución de la práctica 1: primeros pasos en la administración de Oracle](./soluciones/solucion-practica-1-primeros-pasos) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 2: selección del motor de almacenamiento](./soluciones/solucion-practica-2-motor-de-almacenamiento) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |
+| [Solución de la práctica 3: asegurar las cuentas de administración](./soluciones/solucion-practica-3-cuentas-de-administracion) | Resolución de referencia, errores frecuentes y aplicación de la rúbrica. |

@@ -84,6 +84,18 @@ const ut1Sidebar: DefaultTheme.SidebarItem[] = [
       { text: 'Cuestionario de autoevaluación', link: '/ejercicios/cuestionario' },
     ],
   },
+  {
+    text: '🔑 Soluciones',
+    collapsed: true,
+    items: [
+      { text: 'Práctica 1: preparación de la MV Linux Mint', link: '/ejercicios/soluciones/solucion-practica-1-mv-linux-mint' },
+      { text: 'Práctica 2: desplegar Oracle, PostgreSQL y MariaDB', link: '/ejercicios/soluciones/solucion-practica-2-tres-sgbd' },
+      { text: 'Práctica 3: instalar los clientes de los tres SGBD', link: '/ejercicios/soluciones/solucion-practica-3-clientes' },
+      { text: 'Práctica 4: preparación de la MV Windows 10 Pro', link: '/ejercicios/soluciones/solucion-practica-4-mv-windows-10' },
+      { text: 'Práctica 5: instalar Oracle 21c en Windows 10 Pro', link: '/ejercicios/soluciones/solucion-practica-5-oracle-21c-windows' },
+      { text: 'Práctica 6: selección del SGBD', link: '/ejercicios/soluciones/solucion-practica-6-seleccion-sgbd' },
+    ],
+  },
 ]
 
 // ── UT2 · Configuración del sistema gestor de bases de datos (RA2) ──────
@@ -132,6 +144,15 @@ const ut2Sidebar: DefaultTheme.SidebarItem[] = [
       { text: 'Guía: uso de SQL*Plus', link: '/ejercicios/guia-2-uso-sqlplus' },
       { text: 'Guía: uso de vi', link: '/ejercicios/guia-3-uso-vi' },
       { text: 'Cuestionario de autoevaluación', link: '/ejercicios/cuestionario' },
+    ],
+  },
+  {
+    text: '🔑 Soluciones',
+    collapsed: true,
+    items: [
+      { text: 'Práctica 1: primeros pasos en la administración de Oracle', link: '/ejercicios/soluciones/solucion-practica-1-primeros-pasos' },
+      { text: 'Práctica 2: selección del motor de almacenamiento', link: '/ejercicios/soluciones/solucion-practica-2-motor-de-almacenamiento' },
+      { text: 'Práctica 3: asegurar las cuentas de administración', link: '/ejercicios/soluciones/solucion-practica-3-cuentas-de-administracion' },
     ],
   },
 ]
@@ -184,7 +205,16 @@ const ut3Sidebar: DefaultTheme.SidebarItem[] = [
       { text: 'Guía: usuarios comunes en Oracle', link: '/ejercicios/guia-3-usuarios-comunes' },
       { text: 'Cuestionario de autoevaluación', link: '/ejercicios/cuestionario' },
       { text: 'Simulacro de examen UT1–UT3', link: '/ejercicios/simulacro-ut1-ut3' },
-      { text: 'Solución del simulacro UT1–UT3', link: '/ejercicios/solucion-simulacro-ut1-ut3' },
+    ],
+  },
+  {
+    text: '🔑 Soluciones',
+    collapsed: true,
+    items: [
+      { text: 'Práctica 1: usuarios y permisos', link: '/ejercicios/soluciones/solucion-practica-1-usuarios-permisos' },
+      { text: 'Práctica 2: copias con Oracle expdp', link: '/ejercicios/soluciones/solucion-practica-2-copias-expdp' },
+      { text: 'Práctica 3: vistas, sinónimos y roles', link: '/ejercicios/soluciones/solucion-practica-3-vistas-sinonimos-roles' },
+      { text: 'Simulacro de examen UT1–UT3', link: '/ejercicios/solucion-simulacro-ut1-ut3' },
     ],
   },
 ]
