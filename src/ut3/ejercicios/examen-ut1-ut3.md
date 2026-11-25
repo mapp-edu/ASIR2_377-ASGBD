@@ -15,7 +15,7 @@ Unidades 1 (Implantación de SGBD), 2 (Configuración del SGBD) y 3 (Control de 
 
 | | |
 |---|---|
-| **Duración** | 2 horas 25 minutos: orientativamente 30 minutos para la parte A y 115 para la parte B. |
+| **Duración** | 2 horas: orientativamente 20 minutos para la parte A y 100 para la parte B. |
 | **Parte A · Cuestionario** | 20 preguntas de respuesta única, 0,2 puntos cada una (**4 puntos**). Cada respuesta errónea resta un cuarto del valor de la pregunta (0,05). Las preguntas sin contestar no restan. Sin material. |
 | **Parte B · Ejercicio práctico** | 4 ejercicios sobre los servidores Oracle y PostgreSQL del aula (**6 puntos**). Puedes consultar la web del módulo y la documentación oficial de Oracle y PostgreSQL. |
 | **Prohibido** | Herramientas de inteligencia artificial (también los asistentes de VS Code, como Copilot o su chat), mensajería, correo o cualquier comunicación con otras personas. |
@@ -137,7 +137,7 @@ Trabaja en la PDB `FREEPDB1` con tu usuario `exNN`. Los usuarios, roles, perfile
 
 Crea el perfil `exNN_perfil_hotel` con estas limitaciones: como máximo **3 sesiones** simultáneas por usuario, desconexión tras **20 minutos** de inactividad, bloqueo tras **5 intentos** fallidos de inicio de sesión y bloqueo durante **30 minutos**.
 
-Crea los usuarios `exNN_rec_pablo` (recepción), `exNN_com_sara` y `exNN_com_ivan` (comerciales), con ese perfil, tablespace por defecto `USERS` y la contraseña que elijas (indícala en la entrega). *Justifica* qué riesgo reduce cada límite y por qué estos usuarios no necesitan cuota.
+Crea los usuarios `exNN_rec_pablo` (recepción) y `exNN_com_sara` (comercial), con ese perfil, tablespace por defecto `USERS` y la contraseña que elijas (indícala en la entrega). Iván, el otro comercial, no necesita cuenta en el examen: basta con sus clientes de la tabla. *Justifica* qué riesgo reduce cada límite y por qué estos usuarios no necesitan cuota.
 
 #### 3.2 Vistas personalizadas · 0,75 p
 
@@ -162,7 +162,7 @@ Crea estos roles y concédelos:
 - `exNN_r_recepcion`: incluye `exNN_r_hotel`; consultar `v_rec_clientes` y `v_rec_reservas`, y modificar **solo** la habitación.
 - `exNN_r_comercial`: incluye `exNN_r_hotel`; consultar `v_com_clientes` y modificar **solo** las preferencias.
 
-Concede `exNN_r_recepcion` a Pablo y `exNN_r_comercial` a Sara e Iván. *Justifica* por qué no se concede ningún privilegio sobre las tablas.
+Concede `exNN_r_recepcion` a Pablo y `exNN_r_comercial` a Sara. *Justifica* por qué no se concede ningún privilegio sobre las tablas.
 
 #### 3.4 Sinónimos · 0,25 p
 
@@ -179,8 +179,8 @@ Concede `exNN_r_recepcion` a Pablo y `exNN_r_comercial` a Sara e Iván. *Justifi
 
 Demuestra que la política se cumple:
 
-1. Como **Sara**: ver sus clientes (con el sinónimo público), cambiar las preferencias de uno de ellos, cambiar su teléfono, cambiar las preferencias de un cliente de Iván y leer la tarjeta de la tabla `clientes`. Consulta `SESSION_ROLES` y `USER_RESOURCE_LIMITS`.
-2. Como **Pablo**: cambiar la habitación de la reserva 3 y cambiar su fecha de salida.
+1. Como **Sara**: ver sus clientes (con el sinónimo público), cambiar el teléfono de uno de ellos y cambiar las preferencias de un cliente de Iván. Consulta `SESSION_ROLES`.
+2. Como **Pablo**, en la misma conexión del apartado 3.4: cambiar la habitación de la reserva 3 y cambiar su fecha de salida.
 3. Como `exNN`, en una **sesión nueva** (desconecta y vuelve a conectar): privilegios concedidos sobre tus objetos (de tabla y de columna) y privilegios y roles de tus roles.
 
 Presenta un **cuadro de pruebas** (prueba · esperado · obtenido) y *justifica* cómo protege la política los datos de salud y de pago.
@@ -209,7 +209,7 @@ Crea en el esquema `hotel`:
 
 - `v_cont_reservas`: cada reserva con su identificador, el **nombre** del cliente, entrada, salida, importe y si está pagada.
 - `v_cont_tarjetas`: identificador, nombre, DNI y tarjeta de cada cliente.
-- `v_dir_mensual`: por mes de entrada (formato `AAAA-MM`), el número de reservas, los ingresos, el total de noches y el porcentaje de reservas pagadas.
+- `v_dir_mensual`: por mes de entrada (formato `AAAA-MM`), el número de reservas y los ingresos.
 
 *Justifica* si `v_cont_reservas` es actualizable y cómo podrá contabilidad marcar las reservas como pagadas.
 
@@ -228,7 +228,7 @@ Concede cada rol a su usuario y comprueba como Lidia que puede marcar el pago de
 
 *Criterios: RA3.b (0,25)*
 
-Haz que Lidia y Tomás puedan usar las vistas sin escribir el esquema cuando se conectan a `exNN`, y compruébalo con una conexión nueva. *Justifica* por qué no se configura en los roles de grupo y cuándo se aplica el cambio.
+Haz que Lidia y Tomás puedan usar las vistas sin escribir el esquema cuando se conectan a `exNN`, y compruébalo con una conexión nueva de Lidia. *Justifica* por qué no se configura en los roles de grupo y cuándo se aplica el cambio.
 
 #### 4.5 Cambios en la política y verificación · 0,75 p
 
@@ -240,7 +240,7 @@ El hotel cambia su organización:
 2. Tomás pasa de dirección a **contabilidad**.
 3. Ya no hay nadie en dirección: **borra el rol** `exNN_r_direccion`.
 
-Aplica los cambios, comprueba como Lidia y como Tomás el resultado, consulta en el catálogo los privilegios de `hotel` y la pertenencia a roles, y *justifica* los errores que aparezcan y cómo los resuelves.
+Aplica los cambios, comprueba como Tomás el resultado (consulta las vistas de contabilidad, ya no accede a la de dirección y no puede marcar pagos), consulta en el catálogo los privilegios de `hotel` y la pertenencia a roles, y *justifica* los errores que aparezcan y cómo los resuelves.
 
 ## Ponderación
 
