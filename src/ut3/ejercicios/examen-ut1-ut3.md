@@ -15,11 +15,11 @@ Unidades 1 (Implantación de SGBD), 2 (Configuración del SGBD) y 3 (Control de 
 
 | | |
 |---|---|
-| **Duración** | 2 horas: orientativamente 20 minutos para la parte A y 100 para la parte B. |
-| **Parte A · Cuestionario** | 20 preguntas de respuesta única, 0,2 puntos cada una (**4 puntos**). Cada respuesta errónea resta un tercio del valor de la pregunta (0,067). Las preguntas sin contestar no restan. Sin material. |
+| **Duración** | 2 horas 25 minutos: orientativamente 30 minutos para la parte A y 115 para la parte B. |
+| **Parte A · Cuestionario** | 20 preguntas de respuesta única, 0,2 puntos cada una (**4 puntos**). Cada respuesta errónea resta un cuarto del valor de la pregunta (0,05). Las preguntas sin contestar no restan. Sin material. |
 | **Parte B · Ejercicio práctico** | 4 ejercicios sobre los servidores Oracle y PostgreSQL del aula (**6 puntos**). Puedes consultar la web del módulo y la documentación oficial de Oracle y PostgreSQL. |
-| **Prohibido** | Herramientas de inteligencia artificial, mensajería, correo o cualquier comunicación con otras personas. |
-| **Calificación** | Nota = A + B, sobre 10. Cada apartado práctico se califica con la rúbrica del módulo (niveles 0–4). |
+| **Prohibido** | Herramientas de inteligencia artificial (también los asistentes de VS Code, como Copilot o su chat), mensajería, correo o cualquier comunicación con otras personas. |
+| **Calificación** | Nota = A + B, sobre 10. Cada apartado práctico se califica con la rúbrica del módulo (niveles 0-4). |
 
 ::: warning Entrega de la parte B
 Un único documento PDF llamado `apellidos_nombre_examen.pdf` con, para **cada apartado**:
@@ -30,150 +30,6 @@ Un único documento PDF llamado `apellidos_nombre_examen.pdf` con, para **cada a
 
 Sin la justificación, un apartado correcto se queda en el nivel 2 (50 %).
 :::
-
-## Parte A · Cuestionario (4 puntos)
-
-Marca una sola respuesta por pregunta.
-
-**1.** ¿Qué contiene el diccionario de datos de un SGBD? *(0,2 p · RA1.a)*
-
-- a) Los ficheros de registro (logs) de errores
-- b) Metadatos: la descripción de los objetos, usuarios, privilegios y estructura de la base de datos
-- c) Las copias de seguridad
-- d) Los datos de las tablas de los usuarios
-
-**2.** ¿Qué limitaciones tiene Oracle Database 23ai Free? *(0,2 p · RA1.b)*
-
-- a) No admite PL/SQL ni vistas
-- b) Un único usuario conectado a la vez
-- c) Hasta 2 hilos de CPU, 2 GB de RAM y 12 GB de datos de usuario
-- d) Ninguna: es la edición Enterprise sin soporte
-
-**3.** Una pyme quiere montar una tienda en línea con PrestaShop en un servidor LAMP y no quiere pagar licencias. ¿Qué SGBD es el más adecuado? *(0,2 p · RA1.c)*
-
-- a) MariaDB (o MySQL Community)
-- b) SQLite
-- c) Microsoft SQL Server Standard
-- d) Oracle Database Enterprise Edition
-
-**4.** Al instalar en Ubuntu 24.04 un software de Oracle aparece el error «libaio.so.1: cannot open shared object file». ¿Cuál es la solución? *(0,2 p · RA1.i)*
-
-- a) Desactivar SELinux
-- b) Instalar el paquete libaio1t64 y crear el enlace libaio.so.1 que apunte a libaio.so.1t64
-- c) Ampliar la memoria de intercambio (swap)
-- d) Reinstalar el paquete glibc
-
-**5.** El instalador de Oracle en Windows se cierra sin mostrar ningún mensaje. ¿Dónde hay que buscar primero la causa? *(0,2 p · RA1.h)*
-
-- a) En el alert log de la base de datos
-- b) En los registros del inventario de Oracle (por ejemplo, C:\Program Files\Oracle\Inventory\logs) y en la carpeta temporal del instalador
-- c) En el fichero tnsnames.ora
-- d) En el Visor de eventos, en Seguridad
-
-**6.** ¿Qué hace SHUTDOWN IMMEDIATE en Oracle? *(0,2 p · RA2.a)*
-
-- a) No admite conexiones nuevas, deshace las transacciones no confirmadas, desconecta a los usuarios y cierra la base de datos de forma consistente
-- b) Espera a que todos los usuarios se desconecten
-- c) Para la instancia sin cerrar los ficheros; en el siguiente arranque habrá recuperación
-- d) Espera a que terminen las transacciones en curso
-
-**7.** En MySQL/MariaDB, ¿qué motor de almacenamiento se usa por defecto y admite transacciones y claves ajenas? *(0,2 p · RA2.b)*
-
-- a) MyISAM
-- b) CSV
-- c) MEMORY
-- d) InnoDB
-
-**8.** En PostgreSQL se ejecuta `ALTER ROLE postgres CONNECTION LIMIT 1;` ¿Qué efecto tiene? *(0,2 p · RA2.c)*
-
-- a) Bloquea la cuenta postgres
-- b) postgres solo podrá tener una conexión a la vez
-- c) Limita a una conexión a todos los usuarios
-- d) Ninguno: el límite de conexiones no se aplica a los superusuarios
-
-**9.** ¿En qué fichero se configura en qué dirección y puerto escucha el listener de Oracle? *(0,2 p · RA2.e)*
-
-- a) tnsnames.ora
-- b) sqlnet.ora
-- c) listener.ora
-- d) spfileFREE.ora
-
-**10.** ¿Qué parámetro de PostgreSQL cierra las sesiones que llevan un tiempo sin hacer nada y sin ninguna transacción abierta? *(0,2 p · RA2.g)*
-
-- a) tcp_keepalives_idle
-- b) idle_in_transaction_session_timeout
-- c) idle_session_timeout
-- d) statement_timeout
-
-**11.** Conectado como SYSDBA a CDB$ROOT, ejecutas `CREATE USER pepe IDENTIFIED BY "x";` y obtienes ORA-65096. ¿Por qué? *(0,2 p · RA3.c)*
-
-- a) En el contenedor raíz solo se crean usuarios comunes, cuyo nombre debe empezar por C##
-- b) La contraseña es demasiado corta
-- c) pepe ya existe en alguna PDB
-- d) Falta indicar el tablespace por defecto
-
-**12.** En PostgreSQL, ¿a qué equivale `CREATE USER ana;`? *(0,2 p · RA3.c)*
-
-- a) A CREATE ROLE ana LOGIN;
-- b) A CREATE SCHEMA ana;
-- c) A CREATE ROLE ana SUPERUSER;
-- d) A CREATE ROLE ana;
-
-**13.** En Oracle has concedido `UPDATE (telefono) ON clientes` a un usuario. ¿En qué vista lo verá ese usuario? *(0,2 p · RA3.d)*
-
-- a) ROLE_SYS_PRIVS
-- b) USER_COL_PRIVS
-- c) USER_SYS_PRIVS
-- d) USER_TAB_PRIVS
-
-**14.** En PostgreSQL 16, un usuario sin privilegios especiales ejecuta `CREATE TABLE t (x int);` en el esquema public de una base de datos que no es suya. ¿Qué ocurre? *(0,2 p · RA3.f)*
-
-- a) Se crea la tabla, como en todas las versiones
-- b) Se crea como tabla temporal
-- c) Se crea en su esquema personal
-- d) Error de permisos: desde PostgreSQL 15, PUBLIC ya no tiene CREATE en el esquema public
-
-**15.** En Oracle concedes un rol a un usuario que ya está conectado. ¿Cuándo puede usar sus privilegios? *(0,2 p · RA3.e)*
-
-- a) Cuando el DBA ejecute COMMIT
-- b) Inmediatamente, en la sesión abierta
-- c) En una sesión nueva o después de activarlo con SET ROLE
-- d) Después de reiniciar la instancia
-
-**16.** En PostgreSQL, `DROP ROLE ventas;` falla con «role cannot be dropped because some objects depend on it». ¿Qué hay que hacer antes? *(0,2 p · RA3.e)*
-
-- a) Ejecutar DROP ROLE ventas CASCADE;
-- b) Reiniciar el servidor
-- c) Quitarle el atributo LOGIN
-- d) Revocar sus privilegios (REVOKE … FROM ventas o DROP OWNED BY ventas) y reasignar sus objetos si tiene (REASSIGN OWNED)
-
-**17.** En PostgreSQL, ana crea la vista v_resumen sobre su tabla ventas y concede SELECT de la vista a luis, que no tiene permisos sobre ventas. ¿Puede luis consultar la vista? *(0,2 p · RA3.a)*
-
-- a) Solo si la vista es materializada
-- b) Sí: por defecto la vista accede a la tabla con los permisos de su propietaria
-- c) Solo si ana está conectada
-- d) No: necesita SELECT sobre la tabla ventas
-
-**18.** Un usuario de Oracle ejecuta `SELECT * FROM clientes;` sin indicar el esquema. ¿En qué orden busca Oracle el nombre? *(0,2 p · RA3.b)*
-
-- a) Primero un objeto (tabla, vista o sinónimo privado) de su propio esquema y, si no hay, un sinónimo público
-- b) Primero los sinónimos públicos y después su esquema
-- c) Solo en su esquema
-- d) En todos los esquemas por orden alfabético
-
-**19.** Un usuario sin privilegios especiales ejecuta expdp con `TABLESPACES=users`. ¿Qué exporta? *(0,2 p · RA3.h)*
-
-- a) Todas las tablas del tablespace USERS
-- b) Todo el esquema, aunque esté en otros tablespaces
-- c) Solo las tablas de su propio esquema que están en ese tablespace
-- d) Nada: el modo tablespace solo lo pueden usar los DBA
-
-**20.** ¿Qué exigencia del RGPD (artículo 32) está relacionada directamente con hacer copias de seguridad y probar su restauración? *(0,2 p · RA3.h)*
-
-- a) El derecho al olvido
-- b) El consentimiento explícito del interesado
-- c) El nombramiento de un delegado de protección de datos
-- d) La capacidad de restaurar la disponibilidad y el acceso a los datos personales de forma rápida tras un incidente
 
 ## Parte B · Ejercicio práctico (6 puntos)
 
@@ -187,6 +43,15 @@ Sustituye **NN** por tu número de cuenta (por ejemplo, `ex07`) en todos los nom
 | Puerto | `1521` | `5432` |
 | Servicio / base de datos | `FREEPDB1` | `exNN` |
 | Usuario | `exNN` | `exNN` |
+| Cliente | Extensión **SQL Developer** de Oracle para VS Code | Extensión **PostgreSQL** de Microsoft para VS Code |
+
+::: tip Trabajar con las extensiones de VS Code
+- **Ejecutar**: <kbd>Ctrl</kbd>+<kbd>Enter</kbd> ejecuta la sentencia donde está el cursor y <kbd>F5</kbd> ejecuta todo el script (en SQL Developer).
+- **Una conexión por usuario**: para trabajar como Pablo, Sara, Lidia o Tomás, crea en la extensión una conexión nueva con ese usuario y su contraseña.
+- **Sesión nueva**: desconecta la conexión y vuelve a conectar. Hace falta para que se activen los roles por defecto en Oracle y para que se aplique un `ALTER ROLE … SET` en PostgreSQL.
+- **SSL en PostgreSQL**: si al conectar aparece «server does not support SSL, but SSL was required», en las opciones avanzadas de la conexión pon el modo SSL en `Disable`.
+- Las órdenes de `psql` que empiezan por barra invertida (`\conninfo`, `\du`, `\dp`…) **no funcionan** en la extensión: usa consultas al catálogo.
+:::
 
 ::: info Tu cuenta en los servidores
 Todo el grupo trabaja a la vez en los mismos servidores, por eso cada persona tiene su propia cuenta con los datos ya cargados.
@@ -225,7 +90,7 @@ Comprueba que puedes trabajar con los dos SGBD instalados en el servidor del aul
 
 *Criterios: RA1.j (0,25)*
 
-Conéctate desde tu equipo a la PDB **FREEPDB1** del servidor Oracle con tu usuario `exNN`. Muestra los datos de conexión que has usado y una consulta que muestre: el contenedor al que estás conectado, tu usuario, el nombre de la base de datos contenedora, la versión completa de Oracle y desde cuándo está arrancada la instancia.
+Conéctate desde tu equipo a la PDB **FREEPDB1** del servidor Oracle con tu usuario `exNN`. Muestra los datos de la conexión que has creado en SQL Developer (captura del diálogo de conexión, sin la contraseña) y una consulta que muestre: el contenedor al que estás conectado, tu usuario, el nombre de la base de datos contenedora, la versión completa de Oracle y desde cuándo está arrancada la instancia.
 
 *Justifica* qué componente del servidor recibe tu conexión antes de que llegue a la base de datos y en qué puerto escucha.
 
@@ -233,7 +98,7 @@ Conéctate desde tu equipo a la PDB **FREEPDB1** del servidor Oracle con tu usua
 
 *Criterios: RA1.j (0,25)*
 
-Conéctate con `psql` (u otro cliente) a tu base de datos `exNN` del servidor PostgreSQL. Muestra la orden de conexión, `\conninfo` y una consulta que muestre la versión, tu usuario, la base de datos, la dirección y el puerto del servidor y la hora de arranque del servidor.
+Conéctate con la extensión PostgreSQL de VS Code a tu base de datos `exNN` del servidor PostgreSQL. Muestra los datos de la conexión que has creado (captura del diálogo de conexión, sin la contraseña, con el modo SSL) y una consulta que muestre la versión, tu usuario, la base de datos, la dirección y el puerto del servidor y la hora de arranque del servidor.
 
 *Justifica* qué fichero del servidor decide si tu conexión se acepta y con qué método de autenticación.
 
@@ -316,7 +181,7 @@ Demuestra que la política se cumple:
 
 1. Como **Sara**: ver sus clientes (con el sinónimo público), cambiar las preferencias de uno de ellos, cambiar su teléfono, cambiar las preferencias de un cliente de Iván y leer la tarjeta de la tabla `clientes`. Consulta `SESSION_ROLES` y `USER_RESOURCE_LIMITS`.
 2. Como **Pablo**: cambiar la habitación de la reserva 3 y cambiar su fecha de salida.
-3. Como `exNN`, en una **sesión nueva**: privilegios concedidos sobre tus objetos (de tabla y de columna) y privilegios y roles de tus roles.
+3. Como `exNN`, en una **sesión nueva** (desconecta y vuelve a conectar): privilegios concedidos sobre tus objetos (de tabla y de columna) y privilegios y roles de tus roles.
 
 Presenta un **cuadro de pruebas** (prueba · esperado · obtenido) y *justifica* cómo protege la política los datos de salud y de pago.
 
@@ -331,8 +196,8 @@ Trabaja en tu base de datos `exNN` (esquema `hotel`) con tu usuario `exNN`, que 
 Crea:
 
 - El rol de grupo `exNN_r_base` (sin inicio de sesión) con lo imprescindible para entrar en tu base de datos y usar el esquema `hotel`.
-- El usuario `exNN_cont_lidia` (contabilidad), con como máximo **2 conexiones** simultáneas.
-- El usuario `exNN_dir_tomas` (dirección), con como máximo **1 conexión**.
+- El usuario `exNN_cont_lidia` (contabilidad), con como máximo **3 conexiones** simultáneas.
+- El usuario `exNN_dir_tomas` (dirección), con como máximo **2 conexiones** simultáneas.
 
 Las dos cuentas deben caducar el **30 de junio de 2027**. *Justifica* cada atributo y cada privilegio.
 
@@ -363,7 +228,7 @@ Concede cada rol a su usuario y comprueba como Lidia que puede marcar el pago de
 
 *Criterios: RA3.b (0,25)*
 
-Haz que Lidia y Tomás puedan usar las vistas sin escribir el esquema cuando se conectan a `exNN`, y compruébalo. *Justifica* por qué no se configura en los roles de grupo y cuándo se aplica el cambio.
+Haz que Lidia y Tomás puedan usar las vistas sin escribir el esquema cuando se conectan a `exNN`, y compruébalo con una conexión nueva. *Justifica* por qué no se configura en los roles de grupo y cuándo se aplica el cambio.
 
 #### 4.5 Cambios en la política y verificación · 0,75 p
 
@@ -383,9 +248,9 @@ Cada pregunta del test y cada apartado práctico están vinculados a los criteri
 
 | Elemento | RA | Criterios (puntos) | Puntos |
 |---|---|---|---:|
-| Test, preguntas 1–5 | RA1 | RA1.a (0,2) · RA1.b (0,2) · RA1.c (0,2) · RA1.i (0,2) · RA1.h (0,2) | 1 |
-| Test, preguntas 6–10 | RA2 | RA2.a (0,2) · RA2.b (0,2) · RA2.c (0,2) · RA2.e (0,2) · RA2.g (0,2) | 1 |
-| Test, preguntas 11–20 | RA3 | RA3.c (0,4) · RA3.d (0,2) · RA3.f (0,2) · RA3.e (0,4) · RA3.a (0,2) · RA3.b (0,2) · RA3.h (0,4) | 2 |
+| Test, preguntas 1-5 | RA1 | RA1.a (0,2) · RA1.b (0,2) · RA1.c (0,2) · RA1.i (0,2) · RA1.h (0,2) | 1 |
+| Test, preguntas 6-10 | RA2 | RA2.a (0,2) · RA2.b (0,2) · RA2.c (0,2) · RA2.e (0,2) · RA2.g (0,2) | 1 |
+| Test, preguntas 11-20 | RA3 | RA3.c (0,4) · RA3.d (0,2) · RA3.f (0,2) · RA3.e (0,4) · RA3.a (0,2) · RA3.b (0,2) · RA3.h (0,4) | 2 |
 | Práctico 1.1 Conexión a Oracle | RA1 | RA1.j (0,25) | 0,25 |
 | Práctico 1.2 Conexión a PostgreSQL | RA1 | RA1.j (0,25) | 0,25 |
 | Práctico 2.1 Parámetros de conexiones en Oracle | RA2 | RA2.g (0,25) | 0,25 |
