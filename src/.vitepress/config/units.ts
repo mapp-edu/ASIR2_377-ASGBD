@@ -216,6 +216,7 @@ const ut3Sidebar: DefaultTheme.SidebarItem[] = [
       { text: 'Práctica 2: copias con Oracle expdp', link: '/ejercicios/soluciones/solucion-practica-2-copias-expdp' },
       { text: 'Práctica 3: vistas, sinónimos y roles', link: '/ejercicios/soluciones/solucion-practica-3-vistas-sinonimos-roles' },
       { text: 'Simulacro de examen UT1–UT3', link: '/ejercicios/solucion-simulacro-ut1-ut3' },
+      { text: 'Examen UT1–UT3', link: '/ejercicios/solucion-examen-ut1-ut3' },
     ],
   },
 ]

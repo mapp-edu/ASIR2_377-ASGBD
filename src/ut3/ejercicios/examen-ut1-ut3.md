@@ -7,7 +7,13 @@ title: "Examen UT1–UT3"
 pageClass: ejercicios-page
 ---
 
+<ExportPDF />
+
 # 📝 Examen UT1–UT3
+
+::: tip Solución
+Puedes revisar tu examen con la [solución del examen](./solucion-examen-ut1-ut3), que incluye la clave del cuestionario y los criterios de nivel con los que se ha calificado cada apartado práctico.
+:::
 
 Unidades 1 (Implantación de SGBD), 2 (Configuración del SGBD) y 3 (Control de acceso). Resultados de aprendizaje **RA1**, **RA2** y **RA3**.
 
@@ -39,7 +45,7 @@ Sustituye **NN** por tu número de cuenta (por ejemplo, `ex07`) en todos los nom
 
 | | Oracle | PostgreSQL |
 |---|---|---|
-| Servidor | `10.2.26.84` | `10.2.26.84` |
+| Servidor | `10.2.21.163` | `10.2.21.163` |
 | Puerto | `1521` | `5432` |
 | Servicio / base de datos | `FREEPDB1` | `exNN` |
 | Usuario | `exNN` | `exNN` |
